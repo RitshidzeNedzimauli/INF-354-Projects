@@ -1,0 +1,50 @@
+<ion-content>
+
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title>Search Movies</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="search-container ion-padding">
+
+    <ion-searchbar
+      class="search-bar"
+      [(ngModel)]="query"
+      (ionInput)="onSearchChange()"
+      placeholder="Search movies">
+    </ion-searchbar>
+
+    <!-- Results count -->
+    <p *ngIf="movies.length > 0" class="results-count">
+      {{ movies.length }} results
+    </p>
+
+    <!-- Hero -->
+    <div class="hero" *ngIf="featured" (click)="open(featured)">
+      <img [src]="featured['#IMG_POSTER']" alt="{{ featured['#TITLE'] }}" />
+      <div class="overlay">
+        <h1>{{ featured['#TITLE'] }}</h1>
+        <p>{{ featured['#YEAR'] }}</p>
+      </div>
+    </div>
+
+    <!-- Movie Grid -->
+    <div *ngFor="let s of sections" class="section">
+      <h2>{{ s.title }}</h2>
+      <div class="movies-grid">
+        <div class="movie-card" *ngFor="let m of s.items" (click)="open(m)">
+          <div class="poster-container">
+            <img [src]="m['#IMG_POSTER']" alt="{{ m['#TITLE'] }}" />
+          </div>
+          <div class="info">
+            <h3>{{ m['#TITLE'] }}</h3>
+            <p class="year">{{ m['#YEAR'] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

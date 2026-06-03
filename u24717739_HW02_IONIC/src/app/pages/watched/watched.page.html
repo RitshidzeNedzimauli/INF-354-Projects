@@ -1,0 +1,30 @@
+<ion-content class="ion-padding">
+
+  <h2>Watched</h2>
+  <p>{{ movies.length }} movies watched</p>
+
+  <div class="movies-grid">
+    <div class="movie-card" *ngFor="let m of movies">
+
+      <div class="poster-container" (click)="openDetails(m)">
+        <img [src]="m['#IMG_POSTER']" alt="{{ m['#TITLE'] }}" />
+        <span class="badge">{{ m.timesWatched || 1 }}×</span>
+      </div>
+
+      <div class="info">
+        <h3>{{ m['#TITLE'] }}</h3>
+        <p class="year">{{ m['#YEAR'] }}</p>
+      </div>
+
+      <ion-button 
+        size="small" 
+        color="warning" 
+        expand="block"
+        (click)="reset(m)">
+        Reset to Watchlist
+      </ion-button>
+
+    </div>
+  </div>
+
+</ion-content>

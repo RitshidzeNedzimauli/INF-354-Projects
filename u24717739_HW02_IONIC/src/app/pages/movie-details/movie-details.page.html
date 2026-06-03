@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/search"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Movie Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="movie" class="details-container">
+
+    <div class="poster-large">
+      <img [src]="movie['#IMG_POSTER']" alt="{{ movie['#TITLE'] }}" />
+    </div>
+
+    <h1>{{ movie['#TITLE'] }}</h1>
+    <p class="year">{{ movie['#YEAR'] }}</p>
+
+    <!-- Cast -->
+    <div class="cast" *ngIf="movie['#CAST']">
+      <h2>Cast</h2>
+      <p>{{ movie['#CAST'] }}</p>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <ion-button 
+        expand="block" 
+        color="primary" 
+        (click)="addToWatchlist()"
+        *ngIf="!isInWatchlist">
+        + Add to Watchlist
+      </ion-button>
+
+      <ion-button 
+        expand="block" 
+        color="success" 
+        (click)="markAsWatched()">
+        Mark as Watched
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,47 @@
+.details-container {
+  text-align: center;
+}
+
+.poster-large {
+  max-width: 280px;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 10px 0 4px;
+}
+
+.year {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.cast {
+  text-align: left;
+  margin: 30px 0;
+  h2 { font-size: 1.4rem; margin-bottom: 8px; }
+  p { color: #ddd; line-height: 1.5; }
+}
+
+.actions {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+ion-button {
+  --border-radius: 12px;
+  font-weight: bold;
+}

@@ -1,0 +1,72 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+// @import "@ionic/angular/css/palettes/dark.system.css";
+
+// :root {
+//   --ion-background-color: #0b0b0b;
+//   --ion-text-color: #ffffff;
+//   --accent: #e63939;
+//   --card-bg: #1f1f1f;
+// }
+
+// /* Global Dark Theme */
+// body, ion-content {
+//   --background: #0b0b0b;
+//   color: #fff;
+// }
+
+// /* Consistent button styling */
+// ion-button {
+//   --border-radius: 12px;
+//   font-weight: 600;
+// }
+
+// /* Toolbar styling */
+// ion-toolbar {
+//   --background: #1c1c1c;
+//   --border-width: 0;
+// }
+
+// /* Simple fade animation */
+// .fade-in {
+//   animation: fadeIn 0.3s ease forwards;
+// }
+
+// @keyframes fadeIn {
+//   from { opacity: 0; transform: translateY(10px); }
+//   to   { opacity: 1; transform: none; }
+// }

@@ -1,0 +1,133 @@
+.search-container {
+  padding-top: 0;
+}
+
+.results-count {
+  color: #aaaaaa;
+  margin: 8px 12px 16px;
+  font-size: 0.95rem;
+}
+
+ion-searchbar.search-bar {
+  --background: white;
+  --color: white;
+  --placeholder-color: white;
+  --icon-color: white;
+  --border-radius: 9999px;
+  margin-bottom: 16px;
+}
+
+ion-searchbar.search-bar .searchbar-input-container {
+  background: hwb(0 88% 11%);
+  border-radius: 12px;
+}
+
+.hero {
+  position: relative;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 16px 0 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6), transparent);
+  color: white;
+}
+
+.overlay h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #ddd;
+}
+
+.section {
+  margin-top: 28px;
+}
+
+.section h2 {
+  margin: 0 8px 14px 8px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.movie-card {
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.poster-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #111;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+.info {
+  padding: 12px 12px 16px;
+  color: white;
+
+  h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .year {
+    margin: 0;
+    color: #aaaaaa;
+    font-size: 0.95rem;
+  }
+}

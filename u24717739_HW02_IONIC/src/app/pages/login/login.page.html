@@ -1,0 +1,47 @@
+<ion-content class="ion-padding login-page">
+
+  <div class="login-container">
+
+    <div class="logo-section">
+      <h1>FilmLog</h1>
+      <p>Track your movie journey</p>
+    </div>
+
+    <ion-card class="login-card">
+      <ion-card-content>
+
+        <ion-item lines="inset">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input 
+            type="email" 
+            placeholder="your@email.com" 
+            [(ngModel)]="user.email">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input 
+            type="password" 
+            placeholder="••••••••" 
+            [(ngModel)]="user.password">
+          </ion-input>
+        </ion-item>
+
+        <ion-button 
+          expand="block" 
+          class="login-btn" 
+          (click)="submit()">
+          {{ isSignup ? 'Sign Up' : 'Log In' }}
+        </ion-button>
+
+        <p class="toggle-link" (click)="toggleMode()">
+          {{ isSignup ? 'Already have an account? Log In' : "Don't have an account? Sign Up" }}
+        </p>
+
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+</ion-content>
