@@ -1,0 +1,65 @@
+<ion-content class="ion-padding">
+
+  <!-- Search Bar -->
+  <ion-searchbar
+    [(ngModel)]="query"
+    (ionInput)="onSearchChange()"
+    placeholder="Search movies (e.g. Karate Kid)"
+    debounce="400"
+    animated="true">
+  </ion-searchbar>
+
+  <!-- Loading Indicator -->
+  <div class="ion-text-center ion-margin-top" *ngIf="isLoading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Loading movies...</p>
+  </div>
+
+  <!-- Error Message -->
+  <ion-text color="danger" *ngIf="errorMessage">
+    <p class="ion-text-center">{{ errorMessage }}</p>
+  </ion-text>
+
+  <!-- Featured Movie -->
+  <div *ngIf="featured" class="hero" (click)="openMovie(featured)">
+    <img 
+      [src]="featured.poster" 
+      [alt]="featured.title"
+      onerror="this.src='assets/images/placeholder.jpg'">
+    
+    <div class="overlay">
+      <h1>{{ featured.title }}</h1>
+      <p>{{ featured.year }}</p>
+    </div>
+  </div>
+
+  <!-- Search Results -->
+  <div *ngIf="movies.length > 0 && !isLoading" class="results-container">
+    <h2 class="section-title">Results for "{{ query }}"</h2>
+    
+    <div class="movies-grid">
+      <div class="movie-card" 
+           *ngFor="let m of movies" 
+           (click)="openMovie(m)">
+        
+        <div class="poster-container">
+          <img 
+            [src]="m.poster" 
+            [alt]="m.title"
+            onerror="this.src='assets/images/placeholder.jpg'">
+        </div>
+        
+        <div class="info">
+          <h3>{{ m.title }}</h3>
+          <p>{{ m.year }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Results -->
+  <div *ngIf="query && movies.length === 0 && !isLoading" class="ion-text-center ion-margin-top">
+    <p>No movies found for "{{ query }}"</p>
+  </div>
+
+</ion-content>

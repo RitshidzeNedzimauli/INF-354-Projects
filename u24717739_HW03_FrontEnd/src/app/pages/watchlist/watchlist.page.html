@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Watchlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="ion-text-center ion-margin-top" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div *ngIf="!isLoading && movies.length === 0" class="empty-state ion-text-center">
+    <ion-icon name="bookmark-outline" size="large"></ion-icon>
+    <h2>Your Watchlist is empty</h2>
+    <p>Start adding movies from the search page!</p>
+  </div>
+
+  <div *ngIf="movies.length > 0">
+    <p class="count">{{ movies.length }} movie{{ movies.length > 1 ? 's' : '' }} in watchlist</p>
+
+    <div class="movies-grid">
+      <div class="movie-card" 
+           *ngFor="let m of movies" 
+           (click)="openDetails(m)">
+        
+        <div class="poster-container">
+          <img 
+            [src]="m.poster || m.Poster" 
+            [alt]="m.title || m.Title"
+            onerror="this.src='assets/images/placeholder.jpg'">
+        </div>
+        
+        <div class="info">
+          <h3>{{ m.title || m.Title }}</h3>
+          <p>{{ m.year || m.Year }}</p>
+        </div>
+
+        <ion-button 
+          fill="solid" 
+          color="danger" 
+          size="small"
+          class="remove-btn"
+          (click)="remove(m); $event.stopImmediatePropagation()">
+
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+
+             Delete
+
+         </ion-button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

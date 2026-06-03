@@ -1,0 +1,7 @@
+{
+  "name": "u24717739_HW03_FrontEnd",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

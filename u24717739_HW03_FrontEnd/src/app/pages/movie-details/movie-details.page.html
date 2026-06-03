@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/search"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Movie Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="movie; else loading">
+
+  <!-- Poster -->
+  <img 
+    [src]="movie.poster" 
+    [alt]="movie.title"
+    class="movie-poster"
+    onerror="this.src='assets/images/placeholder.jpg'">
+
+  <!-- Title & Year -->
+  <h1 class="movie-title">{{ movie.title }}</h1>
+  <p class="movie-year">{{ movie.year }}</p>
+
+  <!-- Info -->
+  <ion-card>
+    <ion-card-content>
+      <p><strong>Genre:</strong> {{ movie.genre || 'N/A' }}</p>
+      <p><strong>Actors:</strong> {{ movie.actors || 'N/A' }}</p>
+      <p><strong>Plot:</strong> {{ movie.plot || 'No plot available.' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <ion-button expand="block" color="primary" (click)="addToWatchlist()">
+      <ion-icon name="bookmark-outline" slot="start"></ion-icon>
+      Add to Watchlist
+    </ion-button>
+
+    <ion-button expand="block" color="success" (click)="markAsWatched()">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      Mark as Watched
+    </ion-button>
+  </div>
+
+</ion-content>
+
+<ng-template #loading>
+  <div class="ion-text-center ion-margin-top">
+    <ion-spinner></ion-spinner>
+  </div>
+</ng-template>

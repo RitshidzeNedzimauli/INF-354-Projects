@@ -1,0 +1,79 @@
+<ion-content class="ion-padding login-page">
+
+  <div class="login-container">
+    <div class="logo-section">
+      <h1>FilmLog</h1>
+      <p>Track your movie journey</p>
+    </div>
+
+    <ion-card class="login-card">
+      <ion-card-content>
+
+        <ion-item lines="inset" *ngIf="isSignup">
+          <ion-label position="stacked">Full Name</ion-label>
+          <ion-input 
+            type="text" 
+            placeholder="Write your name" 
+            [(ngModel)]="user.name">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input 
+            type="email" 
+            placeholder="your@email.com" 
+            [(ngModel)]="user.email">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input 
+            [type]="showPassword ? 'text' : 'password'" 
+            placeholder="••••••••" 
+            [(ngModel)]="user.password"
+            (ionInput)="onPasswordChange()">
+          </ion-input>
+          <ion-button fill="clear" slot="end" (click)="togglePassword()">
+            <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <div class="strength-bar-container" *ngIf="isSignup && user.password.length > 0">
+          <div class="strength-bar">
+            <div class="strength-fill" 
+                 [style.width.%]="passwordStrength" 
+                 [style.background-color]="passwordStrengthColor === 'danger' ? '#ef4444' : passwordStrengthColor === 'warning' ? '#eab308' : '#22c55e'">
+            </div>
+          </div>
+          <div class="strength-text" [style.color]="passwordStrengthColor === 'danger' ? '#ef4444' : passwordStrengthColor === 'warning' ? '#eab308' : '#22c55e'">
+            {{ passwordStrengthText }}
+          </div>
+        </div>
+
+        <div class="password-requirements" *ngIf="isSignup && user.password.length > 0">
+          <p class="req-title">Password must contain:</p>
+          <div class="req-item" [class.valid]="user.password.length >= 6">✓ At least 6 characters</div>
+          <div class="req-item" [class.valid]="hasLetter">✓ At least one letter</div>
+          <div class="req-item" [class.valid]="hasNumber">✓ At least one number</div>
+          <div class="req-item" [class.valid]="hasSpecial">✓ At least one special character</div>
+        </div>
+
+        <ion-button 
+          expand="block" 
+          class="login-btn" 
+          (click)="submit()"
+          [disabled]="isLoading">
+          {{ isLoading ? 'Please wait...' : (isSignup ? 'Sign Up' : 'Log In') }}
+        </ion-button>
+
+        <p class="toggle-link" (click)="toggleMode()">
+          {{ isSignup ? 'Already have an account? Log In' : "Don't have an account? Sign Up" }}
+        </p>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

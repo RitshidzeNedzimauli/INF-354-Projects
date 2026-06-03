@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Statistics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngIf="isLoading" class="ion-text-center ion-margin-top">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Analyzing your movie journey...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="ion-text-center ion-margin-top">
+    <ion-text color="danger">{{ errorMessage }}</ion-text>
+  </div>
+
+  <div *ngIf="!isLoading && stats">
+
+    <h2>Your movie insights</h2>
+
+    <!-- Pie Chart -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Top Genres in your Watched List</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <canvas #genrePieChart style="max-height: 280px;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Genre Cards -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Genre Breakdown</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="genre-grid">
+          <div class="genre-card" *ngFor="let genre of topGenres">
+            <div class="genre-dot" [style.background]="getColor(genre.genre)"></div>
+            <div class="genre-info">
+              <h3>{{ genre.genre }}</h3>
+              <p>{{ genre.count }} movies • {{ genre.percentage }}%</p>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && (!stats || stats.totalWatched === 0)" class="empty-state ion-text-center">
+    <ion-icon name="stats-chart-outline" size="large"></ion-icon>
+    <h2>No data yet</h2>
+    <p>Start marking movies as watched to see your statistics.</p>
+  </div>
+
+</ion-content>

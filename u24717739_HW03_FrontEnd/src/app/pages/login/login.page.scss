@@ -1,0 +1,81 @@
+.login-container {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e63939;
+  margin: 0;
+}
+
+.logo-section p {
+  color: #aaa;
+  margin-top: 6px;
+}
+
+.login-card {
+  background: #1e1e1e;
+  border-radius: 16px;
+}
+
+.strength-bar-container {
+  margin: 12px 8px;
+}
+
+.strength-bar {
+  height: 6px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.strength-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.password-requirements {
+  margin: 12px 8px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.req-title {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.req-item {
+  margin: 3px 0;
+  padding-left: 4px;
+}
+
+.req-item.valid {
+  color: #22c55e;
+}
+
+.login-btn {
+  margin-top: 24px;
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #60a5fa;
+  font-size: 0.95rem;
+}
